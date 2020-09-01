@@ -16,9 +16,15 @@ def index():
 
 seznam = None
 poraba = None
+znamka = None
+model = None
+leto = None
 
 @route('/', method='POST')
 def do_index():
+    global znamka
+    global model
+    global leto
     znamka = request.forms.get('Znamka')
     model = request.forms.get('Model')
     leto = request.forms.get('Leto')
@@ -63,7 +69,8 @@ def getfinal():
     
     cost = getvehicleinfo.getcost(poraba, VKM)
 
-    return template('views/last.tpl', poraba=poraba, VKM=VKM, VHM=VHM, cost=cost)
+    return template('views/last.tpl', poraba=poraba, VKM=VKM, VHM=VHM, cost=cost, znamka=znamka,
+    model=model, leto=leto, start=start, destinacija=destinacija)
 
 
 

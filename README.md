@@ -16,7 +16,7 @@ nato pa poženemo s
 ```
 ./jaka.py
 ```
-Zažene se spletni vmesnik dostopen na [dostop](http://127.0.0.1"8080/), ali pa s klikom na povezavo, ki se izpiše v komandni vrstici.
+Zažene se spletni vmesnik dostopen na [dostop](http://127.0.0.1:8080/), ali pa s klikom na povezavo, ki se izpiše v komandni vrstici.
 
 V polja vnesemo vse potrebne podatke (znamko, model vozila ter leto izdelave), nato pa kliknemo na gumb vnesi. V naslednjem polju se nam v obliki spustnega seznama izpišejo vse različice vnesenega vozila. V primeru, da za vnesene podatke vozilo ni bilo najdeno, se izpiše opozorilo.
 

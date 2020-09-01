@@ -2,6 +2,7 @@ from bottle import run, route, request, template, static_file
 import getvehicleinfo
 import getdistanceinfo
 
+
 @route('/static/<filename:path>')
 def staticindex(filename):
     return static_file(filename, root='static/')
@@ -22,7 +23,6 @@ def do_index():
     model = request.forms.get('Model')
     leto = request.forms.get('Leto')
     izbor = request.forms.get('izbor')
-
 
     global seznam
     seznam = getvehicleinfo.getCorrectModel(leto, znamka, model)
@@ -45,9 +45,9 @@ def getresult():
 
 @route('/last/', method='POST')
 def getfinal():
-    start = request.forms.get('start')
+    start = request.forms.getunicode('start')
     postnasts = request.forms.get('postnasts')
-    destinacija = request.forms.get('destinacija')
+    destinacija = request.forms.getunicode('destinacija')
     postnastd = request.forms.get('postnastd')
 
     if(start == '' or destinacija == ''):
@@ -62,8 +62,6 @@ def getfinal():
         return template('views/second.tpl', poraba=poraba, errorcheck = -1)
     
     cost = getvehicleinfo.getcost(poraba, VKM)
-
-    # print(type(VKM))
 
     return template('views/last.tpl', poraba=poraba, VKM=VKM, VHM=VHM, cost=cost)
 

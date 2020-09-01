@@ -6,7 +6,6 @@ import myAPIkey
 def izdelajZahtevo(start, destinacija, postnasts, postnastd):
     API_KEY = myAPIkey.returnAPIKey()
     modelNiz = 'https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins={},{}&destinations={},{}&key={}'.format(start, postnasts, destinacija, postnastd, API_KEY)
-    # print(modelNiz)
     zahtevaJSON = requests.get(modelNiz)
     zahteva = json.loads(zahtevaJSON.text)
     
@@ -14,8 +13,6 @@ def izdelajZahtevo(start, destinacija, postnasts, postnastd):
         return 0
     elif(zahteva['rows'][0]['elements'][0]['status'] == 'ZERO_RESULTS'):
         return -1
-
-    # print(zahtevaJSON)
 
     return zahteva
     

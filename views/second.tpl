@@ -28,7 +28,7 @@
             <input id="destinacija" name="destinacija" type="text" placeholder="Ljubljana"/>
             <label for="postnastd">*Poštna številka:</label>
             <input id="postnastd" name="postnastd" type="text" placeholder="1000"/>
-            <h1 class="poraba">*Podatek potreben za kraje s pogostimi imeni</h1>
+            <h1 class="poraba">*Podatek potreben le za kraje s pogostimi imeni</h1>
             <input id="submit" value="Vnesi" type="submit" />
         </form>
         </div>

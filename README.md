@@ -6,13 +6,15 @@ Projektna naloga pri predmetu UVP
 Najprej se prepričamo, da imamo na svojem računalniku nameščen bottle. 
 
 Namestimo ga prek ukazne vrstice z ukazom
-```pip install bottle
+```
+pip install bottle
 ```
 
 ## Uporaba
 Po kloniranju repozitorija se v ukazni vrstici do direktorija premaknemo s komando cd,
 nato pa poženemo s 
-```./jaka.py
+```
+./jaka.py
 ```
 Zažene se spletni vmesnik dostopen na [dostop](http://127.0.0.1"8080/), ali pa s klikom na povezavo, ki se izpiše v komandni vrstici.
 
@@ -22,7 +24,7 @@ Ko izberemo željeno različico vozila, se nam po kliku na gumb izberi odpre nov
 
 Prikaže se nam zadnja stran, na kateri se nam izpiše izračunana poraba, razdalja med krajema v kilometrih ter čas potovanja in cena porabljenega goriva.
 
-## License
+## Licenca
 [MIT](https://choosealicense.com/licenses/mit/)
 
 

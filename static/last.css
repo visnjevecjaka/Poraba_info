@@ -1,0 +1,17 @@
+*{
+    background: #e8ded2;
+    font-family: 'Lato', serif;
+    font-size: 50px;
+}
+
+.container{
+    padding-top: 200px;
+}
+
+.podatki{
+    align-self: center;
+    justify-content: center;
+    margin: 30px;
+    color: #056676;
+    display: flex;
+}

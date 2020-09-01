@@ -1,5 +1,5 @@
 
-myAPIKey = 'AIzaSyCl53IFDERUXf2-BSHAeZ0ozA0re8DzTMw'
+myAPIKey = 'AIzaSyD01bdzD6ko5mj0XKtB2s1ARbRDzpgHT4w'
 
 def returnAPIKey():
     return myAPIKey

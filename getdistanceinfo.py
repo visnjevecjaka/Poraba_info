@@ -45,6 +45,8 @@ def pridobiRazdaljoVCasu(start, destinacija, postnasts, postnastd):
     elif(zahteva == -1):
         return -1
 
-    cas = (zahteva['rows'][0]['elements'][0]['duration']['text'])
+    castemp = (zahteva['rows'][0]['elements'][0]['duration']['text'])
 
-    return cas
+    koncni_cas = castemp.replace('s','')
+
+    return koncni_cas

@@ -1,0 +1,58 @@
+*{
+    background: #e8ded2;
+    font-family: 'Lato', serif;
+}
+
+.naslov{
+    display: flex;
+    justify-content: center;
+    color: #056676;
+    font-size: 50px;
+}
+
+.napis{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    color: #056676;
+}   
+
+.anketa{
+    font-size: 30px;
+    padding-top: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    color: #5eaaa8;;
+}
+
+form{
+    font-size: 30px;
+    display: grid;
+    padding: 1em;
+    overflow: hidden;
+    grid-template-columns: 200px 1fr;
+    grid-gap: 16px;
+}
+
+form input, .option{
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+form label{
+    font-size: 30px;
+    justify-content: center;
+    display: flex;
+    align-self: center;
+}
+
+#submit{
+    font-size: 30px;
+    color: white;
+    background: #056676;
+    margin-top: 20px;
+    grid-column: 1 / 3;
+}

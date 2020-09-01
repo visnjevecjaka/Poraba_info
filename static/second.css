@@ -1,0 +1,45 @@
+*{
+    background: #e8ded2;
+    font-family: 'Lato', serif;
+}
+
+.poraba, .error{
+    padding-top: 45px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    color: #056676;
+    width: auto;
+}
+
+.anketa{
+    font-size: 30px;
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    color: #5eaaa8;;
+}
+
+form{
+    font-size: 30px;
+    display: grid;
+    padding: 1em;
+    overflow: hidden;
+    grid-gap: 16px;
+}
+
+form input, .option{
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#submit{
+    font-size: 30px;
+    color: white;
+    background: #056676;
+    margin-top: 20px;
+    grid-column: 1 / 3;
+}

@@ -14,7 +14,7 @@ pip install bottle
 Po kloniranju repozitorija se v ukazni vrstici do direktorija premaknemo s komando cd,
 nato pa poženemo s 
 ```
-./jaka.py
+python jaka.py
 ```
 Zažene se spletni vmesnik dostopen na [dostop](http://127.0.0.1:8080/), ali pa s klikom na povezavo, ki se izpiše v komandni vrstici.
 

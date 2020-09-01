@@ -1,6 +1,10 @@
-from bottle import run, route, request, template
+from bottle import run, route, request, template, static_file
 import getvehicleinfo
 import getdistanceinfo
+
+@route('/static/<filename:path>')
+def staticindex(filename):
+    return static_file(filename, root='static/')
 
 @route('/')
 def index():
@@ -57,7 +61,7 @@ def getfinal():
     elif(VKM == -1 or VHM == -1):
         return template('views/second.tpl', poraba=poraba, errorcheck = -1)
     
-    cost = getvehicleinfo.getcost(poraba, VKM)    
+    cost = getvehicleinfo.getcost(poraba, VKM)
 
     # print(type(VKM))
 

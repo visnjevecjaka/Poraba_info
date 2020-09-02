@@ -67,9 +67,9 @@ def pridobi_končni_rezultat():
     elif VKM == -1 or VHM == -1:
         return template('views/second.tpl', poraba=poraba, errorcheck = -1)
     
-    strošek = getvehicleinfo.pridobi_strošek(poraba, VKM)
+    cost = getvehicleinfo.pridobi_strošek(poraba, VKM)
 
-    return template('views/last.tpl', poraba=poraba, VKM=VKM, VHM=VHM, strošek=strošek, znamka=znamka,
+    return template('views/last.tpl', poraba=poraba, VKM=VKM, VHM=VHM, cost=cost, znamka=znamka,
     model=model, leto=leto, start=start, destinacija=destinacija)
 
 

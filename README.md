@@ -26,6 +26,9 @@ Ko izberemo željeno različico vozila, se nam po kliku na gumb izberi odpre nov
 
 Prikaže se nam zadnja stran, na kateri se nam izpiše izračunana poraba, razdalja med krajema v kilometrih, čas potovanja in cena porabljenega goriva.
 
+## Opombe
+Pri iskanju modela avtomobila program uporablja ameriško podatkovno bazo, zato podatkov za nekatere avtomobile ni mogoče dobiti. Za ceno goriva program privzame, da 1 liter goriva stane 1 evro.
+
 ## Licenca
 [MIT](https://choosealicense.com/licenses/mit/)
 

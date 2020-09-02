@@ -3,9 +3,9 @@ import xml.etree.ElementTree as ET
 
 tree = None
 
-def getCorrectModel(year, make, model):
-    modelString = 'https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year={}&make={}&model={}'.format(year, make, model)
-    request = requests.get(modelString)
+def pridobi_model(leto, znamka, model):
+    model_niz = 'https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year={}&make={}&model={}'.format(leto, znamka, model)
+    request = requests.get(model_niz)
 
     global tree
     tree = ET.fromstring(request.content)
@@ -14,24 +14,22 @@ def getCorrectModel(year, make, model):
     for i in range(len(tree)):
         texttree.append(tree[i][0].text)
 
-    print(texttree)
-
     return texttree
 
-def getl100km(tree, index):
-    modelNr = tree[index][1].text
-    # print(modelNr)
+def pridobi_litre_na_100km(tree, index):
+    ID_modela_avtomobila = tree[index][1].text
 
-    MPGPoizvedbaString = 'https://www.fueleconomy.gov/ws/rest/vehicle/{}'.format(modelNr)
-    MPGPoizvedba = requests.get(MPGPoizvedbaString)
+    MPG_poizvedba_niz = 'https://www.fueleconomy.gov/ws/rest/vehicle/{}'.format(ID_modela_avtomobila)
+    MPG_poizvedba = requests.get(MPG_poizvedba_niz)
 
-    tree1 = ET.fromstring(MPGPoizvedba.content)
-    FINAL_MPG = int(tree1[19].text)
-    MPGCONVERTOR = 235.15
+    tree1 = ET.fromstring(MPG_poizvedba.content)
+    MPG_STANJE = int(tree1[19].text)
+    MPG_PRETVORNIK = 235.15
+    #MPG je kratica za angleški izraz miles per gallon (tj. milje na galon).
 
-    FINALL100KM = round(MPGCONVERTOR / FINAL_MPG, 2)
+    KONČNO_STANJE = round(MPG_PRETVORNIK / MPG_STANJE, 2)
 
-    return FINALL100KM
+    return KONČNO_STANJE
 
-def getcost(lkm, distance):
-    return round((distance/100) * lkm, 2)
+def pridobi_strošek(l_na_km, razdalja):
+    return round((razdalja / 100) * l_na_km, 2)

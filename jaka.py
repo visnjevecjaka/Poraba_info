@@ -8,7 +8,7 @@ def staticindex(filename):
     return static_file(filename, root='static/')
 
 @route('/')
-def index():
+def index_prva():
     seznam=[' ']
     Info = {}
     Info["seznam"] = seznam
@@ -21,7 +21,7 @@ model = None
 leto = None
 
 @route('/', method='POST')
-def do_index():
+def index_druga():
     global znamka
     global model
     global leto
@@ -31,45 +31,45 @@ def do_index():
     izbor = request.forms.get('izbor')
 
     global seznam
-    seznam = getvehicleinfo.getCorrectModel(leto, znamka, model)
+    seznam = getvehicleinfo.pridobi_model(leto, znamka, model)
     Info = {}
     Info["seznam"] = seznam
 
     return template('views/index.tpl', Info)
 
 @route('/next/', method='POST')
-def getresult():
+def pridobi_rezultat():
     izbor = request.forms.get('izbor')
     index = -1
     for i in range(len(seznam)):
-        if (seznam[i] == izbor):
+        if seznam[i] == izbor:
             index = i
     
     global poraba
-    poraba = getvehicleinfo.getl100km(getvehicleinfo.tree, index)
+    poraba = getvehicleinfo.pridobi_litre_na_100km(getvehicleinfo.tree, index)
     return template('views/second.tpl', poraba=poraba, errorcheck = -2)
 
 @route('/last/', method='POST')
-def getfinal():
+def pridobi_končni_rezultat():
     start = request.forms.getunicode('start')
     postnasts = request.forms.get('postnasts')
     destinacija = request.forms.getunicode('destinacija')
     postnastd = request.forms.get('postnastd')
 
-    if(start == '' or destinacija == ''):
+    if start == '' or destinacija == '':
         return template('views/second.tpl', poraba=poraba, errorcheck = 0)
 
-    VKM = getdistanceinfo.pridobiRazdaljoVKM(start, destinacija, postnasts, postnastd)
-    VHM = getdistanceinfo.pridobiRazdaljoVCasu(start, destinacija, postnasts, postnastd)
+    VKM = getdistanceinfo.pridobi_razdaljo_v_km(start, destinacija, postnasts, postnastd)
+    VHM = getdistanceinfo.pridobi_razdaljo_v_času(start, destinacija, postnasts, postnastd)
 
-    if (VKM == 0 or VHM == 0):
+    if VKM == 0 or VHM == 0:
         return template('views/second.tpl', poraba=poraba, errorcheck = 0)
-    elif(VKM == -1 or VHM == -1):
+    elif VKM == -1 or VHM == -1:
         return template('views/second.tpl', poraba=poraba, errorcheck = -1)
     
-    cost = getvehicleinfo.getcost(poraba, VKM)
+    strošek = getvehicleinfo.pridobi_strošek(poraba, VKM)
 
-    return template('views/last.tpl', poraba=poraba, VKM=VKM, VHM=VHM, cost=cost, znamka=znamka,
+    return template('views/last.tpl', poraba=poraba, VKM=VKM, VHM=VHM, strošek=strošek, znamka=znamka,
     model=model, leto=leto, start=start, destinacija=destinacija)
 
 

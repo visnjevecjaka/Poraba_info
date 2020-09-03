@@ -8,7 +8,7 @@
 
     <body>
 
-        <h1 class="poraba">Vaša poraba je: {{poraba}} l/100km<h1>
+        <h1 class="poraba">Vaša poraba je {{poraba}} l/100 km.<h1>
 
         <div class="error">
         %if errorcheck == 0:

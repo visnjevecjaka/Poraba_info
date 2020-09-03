@@ -8,7 +8,7 @@
     <body>
     <div class="container">
         <h1 class="podatki">{{znamka}} {{model}} {{leto}}</h1>
-        <h1 class="podatki">Vaša poraba je: {{poraba}} l/100km.<h1>
+        <h1 class="podatki">Vaša poraba je {{poraba}} l/100 km.<h1>
         <h1 class="podatki">Razdalja med krajema {{start}} in {{destinacija}} je {{VKM}} km.</h1>
         <h1 class="podatki">Trajanje poti je {{VHM}}.</h1>
         <h1 class="podatki">Vaš strošek: {{cost}} €</h1>

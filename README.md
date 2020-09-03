@@ -2,7 +2,7 @@
 Projektna naloga pri predmetu UVP na Fakulteti za matematiko in fiziko v študijskem letu 2019/20.
 
 ## Kratek opis 
-Poraba-info je spletna stran, ki uporabniku omogoča izračun stroškov porabe goriva na določeni poti med dvema krajema. Poleg tega uporabnik dobi povratno informacijo o potovalnem času ter dolžini poti, ki je mora opraviti. 
+Poraba-info je spletna stran, ki uporabniku omogoča izračun stroškov porabe goriva na določeni poti med dvema krajema. Poleg tega uporabnik dobi povratno informacijo o potovalnem času ter dolžini poti, ki jo hoče opraviti. 
 
 ## Namestitev
 Najprej se prepričajmo, da imamo na svojem računalniku nameščen bottle. 

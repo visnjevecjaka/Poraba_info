@@ -19,7 +19,7 @@ def izdelaj_zahtevo(start, destinacija, postnasts, postnastd):
 
 def pridobi_razdaljo_v_km(start, destinacija, postnasts, postnastd):
     zahteva = izdelaj_zahtevo(start, destinacija, postnasts, postnastd)
-
+    #postnasts = postna stevilka kraja odhoda, postnastd = postna stevilka destinacije.
     if zahteva == 0:
         return 0
     elif zahteva == -1:

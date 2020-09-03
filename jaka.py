@@ -66,12 +66,13 @@ def pridobi_končni_rezultat():
         return template('views/second.tpl', poraba=poraba, errorcheck = 0)
     elif VKM == -1 or VHM == -1:
         return template('views/second.tpl', poraba=poraba, errorcheck = -1)
+    #Pogojna stavka, ki skrbita, da se program ne sesuje v primeru, če potovanje prek cest med krajema
+    #ni izvedljivo oziroma če kateri od krajev ne obstaja ali ga ni mogoče najti.
     
     cost = getvehicleinfo.pridobi_strošek(poraba, VKM)
 
     return template('views/last.tpl', poraba=poraba, VKM=VKM, VHM=VHM, cost=cost, znamka=znamka,
     model=model, leto=leto, start=start, destinacija=destinacija)
-
 
 
 if __name__ == '__main__':

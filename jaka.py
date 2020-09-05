@@ -7,33 +7,44 @@ import getdistanceinfo
 def staticindex(filename):
     return static_file(filename, root='static/')
 
+Info = {}
+seznamleto = []
+seznamznamka = []
+seznammodel = []
+izbor = []
+leto = 0
+poraba = None
+
 @route('/')
 def index():
-    seznam=[' ']
-    Info = {}
-    Info["seznam"] = seznam
+    global Info
+    global seznamleto
+    global seznamznamka
+    global seznammodel
+    seznamleto = getvehicleinfo.getYear()
+    Info["seznamleto"] = seznamleto
+    Info["seznamznamka"] = seznamznamka
+    Info["seznammodel"] = seznammodel
+    Info["izbor"] = izbor
     return template('views/index.tpl', Info)
-
-seznam = None
-poraba = None
-znamka = None
-model = None
-leto = None
 
 @route('/', method='POST')
 def do_index():
-    global znamka
-    global model
-    global leto
-    znamka = request.forms.get('Znamka')
-    model = request.forms.get('Model')
-    leto = request.forms.get('Leto')
-    izbor = request.forms.get('izbor')
+    global Info
+    global seznamznamka
+    global seznammodel
+    
+    leto = request.forms.get("leto")
+    znamka = request.forms.get("znamka")
+    model = request.forms.get("model")
+    
+    seznamznamka = getvehicleinfo.getMake(leto)
+    seznammodel = getvehicleinfo.getModel(znamka)
+    izbor = getvehicleinfo.getModelInfo(model)
 
-    global seznam
-    seznam = getvehicleinfo.getCorrectModel(leto, znamka, model)
-    Info = {}
-    Info["seznam"] = seznam
+    Info["seznamznamka"] = seznamznamka
+    Info["seznammodel"] = seznammodel
+    Info["izbor"] = izbor
 
     return template('views/index.tpl', Info)
 
@@ -41,8 +52,8 @@ def do_index():
 def getresult():
     izbor = request.forms.get('izbor')
     index = -1
-    for i in range(len(seznam)):
-        if (seznam[i] == izbor):
+    for i in range(len(seznammodel)):
+        if (seznammodel[i] == izbor):
             index = i
     
     global poraba

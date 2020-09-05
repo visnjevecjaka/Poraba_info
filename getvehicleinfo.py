@@ -2,12 +2,14 @@ import requests
 import xml.etree.ElementTree as ET
 
 tree = None
+year = None
+make = None
+model = None
 
-def getCorrectModel(year, make, model):
-    modelString = 'https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year={}&make={}&model={}'.format(year, make, model)
+def getYear():
+    modelString = 'https://www.fueleconomy.gov/ws/rest/vehicle/menu/year'
     request = requests.get(modelString)
 
-    global tree
     tree = ET.fromstring(request.content)
     texttree = []
 
@@ -15,6 +17,53 @@ def getCorrectModel(year, make, model):
         texttree.append(tree[i][0].text)
 
     print(texttree)
+
+    return texttree
+
+def getMake(finalyear):
+    modelString = 'https://www.fueleconomy.gov/ws/rest/vehicle/menu/make?year={}'.format(finalyear)
+    request = requests.get(modelString)
+    print(modelString)
+    global year
+    year = finalyear
+
+    tree = ET.fromstring(request.content)
+    texttree = []
+
+    for i in range(len(tree)):
+        texttree.append(tree[i][0].text)
+
+    return texttree
+
+def getModel(finalmake):
+    modelString = 'https://www.fueleconomy.gov/ws/rest/vehicle/menu/model?year={}&make={}'.format(year, finalmake)
+    request = requests.get(modelString)
+    print(modelString)
+
+    global make
+    make = finalmake
+
+    tree = ET.fromstring(request.content)
+    texttree = []
+
+    for i in range(len(tree)):
+        texttree.append(tree[i][0].text)
+
+    return texttree
+
+def getModelInfo(finalmodel):
+    modelString = 'https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year={}&make={}&model={}'.format(year, make, finalmodel)
+    request = requests.get(modelString)
+    print(modelString)
+
+    global model
+    model = finalmodel
+
+    tree = ET.fromstring(request.content)
+    texttree = []
+
+    for i in range (len(tree)):
+        texttree.append(tree[i][0].text)
 
     return texttree
 

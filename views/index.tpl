@@ -12,31 +12,40 @@
         <h1>PORABA - INFO</h1>
     </div>
 
-    <div class="napis">
-        %if seznam == []:
-            <h1>Vnesi pravilne podatke!</h1>
-        %end
-    </div>
     <div class="anketa">
         <form action="/" method="POST">
-            <label for="znamka">Znamka:</label>
-            <input id="znamka" name="Znamka" type="text" placeholder="Ford" />
-            <label for="model">Model:</label>
-            <input id="model" name="Model" type="text" placeholder="Mustang"/>
             <label for="leto">Leto:</label>
-            <input id="leto" name="Leto" type="text" placeholder="2020"/>
-            <input id="submit" value="Vnesi" type="submit"/>
-        </form>
-    </div>
-
-    <div class="anketa">
-        <form action="/next/" method="POST">
-            <select class="option" name="izbor">
-            % for i in seznam:
+            <select class="option" name="leto">
+            % for i in seznamleto:
                 <option value="{{i}}">{{i}}</option>
             % end
-            </select>
-            <input id="submit" value="Izberi" type="submit"/>
+            <input type="submit"</>  
+        </form>
+
+        <form action="/" method="POST">
+            <label for="znamka">Znamka:</label>
+            <select class="option" name="znamka">
+            % for i in seznamznamka:
+                <option value="{{i}}">{{i}}</option>
+            %end
+            <input type="submit"</>
+        </form>
+
+        <form action="/" method="POST">
+            <label for="model">Model:</label>
+            <select class="option" name="model">
+            % for i in seznammodel:
+                <option value="{{i}}">{{i}}</option>
+            %end
+            <input type="submit"</>
+        </form>
+
+        <form action="/next/" method="POST">
+            <select class="option" name="izbor">
+            % for i in izbor:
+                <option value="{{i}}">{{i}}</option>
+            %end
+            <input type="submit"</>
         </form>
     </div>
     </body>
